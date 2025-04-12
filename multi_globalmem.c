@@ -79,6 +79,7 @@ static ssize_t globalmem_read(struct file *filp, char __user * buf, size_t size,
 		ret = count;
 
 		printk(KERN_INFO "read %u bytes(s) from %lu\n", count, p);
+		printk(KERN_INFO "read major:minor %u:%u\n", MAJOR(dev->cdev.dev), MINOR(dev->cdev.dev));
 	}
 
 	return ret;
@@ -104,6 +105,7 @@ static ssize_t globalmem_write(struct file *filp, const char __user * buf,
 		ret = count;
 
 		printk(KERN_INFO "written %u bytes(s) from %lu\n", count, p);
+		printk(KERN_INFO "written major:minor %u:%u\n", MAJOR(dev->cdev.dev), MINOR(dev->cdev.dev));
 	}
 
 	return ret;
